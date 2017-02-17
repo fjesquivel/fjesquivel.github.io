@@ -2,12 +2,14 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="js/main.min.js"></script>
 <link rel="stylesheet" href="css/styles.min.css">
 
 <title>Trinity Force Networks</title>
 </head>
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
+
 	<section class="main-container">
 		<div class="header">
 			<div class="logo"> 
@@ -43,40 +45,40 @@
 			<div class="big-banner">
 				<div class="banner-purple">
 					<div class="text-banner">
-						<p class="title"> The Trinity Force </p>
-						<p class="episode"> Episode 379: Champion Select </p>
-						<p class="host"> Host: pwnophobia</p>
+						<p class="title"> {{featured[0].title}} </p>
+						<p class="episode"> {{featured[0].subtitle}} </p>
+						<p class="host"> Host: <span ng-repeat="x in featured[0].hosts"> {{x[1]}}, </span></p>
 					</div>
 				</div>
-				<img src="images/img.jpg" />
+				<img src="http://trinityforcenetwork.com/{{featured[0].image_url}}" />
 			</div>
 			<div class="small-banners">
-				<div class="single-banner" style="background-image: url('images/img2.jpg');">
+				<div class="single-banner" style="background-image: url('http://trinityforcenetwork.com/{{featured[1].image_url}}');">
 					<div class="text-banner">
-							<p class="title"> Trinity Force Podcast </p>
-							<p class="episode"> Episode 385: Yorick </p>
-							<p class="host"> Host: pwnophobia, punchinello </p>
+							<p class="title"> {{featured[1].title}} </p>
+							<p class="episode">  </p>
+							<p class="host">  <span ng-repeat="x in featured[1].hosts"> {{x[1]}}, </span></p>
 					</div>
 				</div>
-				<div class="single-banner" style="background-image: url('images/img3.jpg');">
+				<div class="single-banner" style="background-image: url('http://trinityforcenetwork.com/{{featured[2].image_url}}');">
 					<div class="text-banner">
-							<p class="title"> LCS Rundown </p>
-							<p class="episode"> Episode 128: NA & EU</p>
-							<p class="host"> Host: motgnarom, Blake </p>
+							<p class="title"> {{featured[2].title}} </p>
+							<p class="episode">  </p>
+							<p class="host">  <span ng-repeat="x in featured[2].hosts"> {{x[1]}}, </span></p>
 					</div>
 				</div>
-				<div class="single-banner" style="background-image: url('images/img4.jpg');">
+				<div class="single-banner" style="background-image: url('http://trinityforcenetwork.com/{{featured[3].image_url}}');">
 					<div class="text-banner">
-							<p class="title"> Into the Iris </p>
-							<p class="episode"> Episode 7: The Three  </p>
-							<p class="host"> Host: pwnophobia, punchinello </p>
+							<p class="title"> {{featured[3].title}} </p>
+							<p class="episode"> </p>
+							<p class="host">  <span ng-repeat="x in featured[3].hosts"> {{x[1]}}, </span></p>
 					</div>
 				</div>
-				<div class="single-banner" style="background-image: url('images/img5.jpg');">
+				<div class="single-banner" style="background-image: url('http://trinityforcenetwork.com/{{featured[4].image_url}}');">
 					<div class="text-banner">
-						<p class="title"> Hearth of the Cards </p>
-						<p class="episode"> Episode 45: Last Wing </p>
-						<p class="host"> Host: pwnophobia, punchinello </p>
+							<p class="title"> {{featured[4].title}} </p>
+							<p class="episode">  </p>
+							<p class="host">  <span ng-repeat="x in featured[2].hosts"> {{x[1]}}, </span></p>
 					</div>
 				</div>
 			</div>
@@ -91,70 +93,76 @@
 				<h1>Recent</h1>
 			</div>
 			<div class="recent-item">
-				<img src="images/img6.jpg" />
+				<img src="http://trinityforcenetwork.com/{{latest[0].image_url}}" />
 				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
+					<p class="title"> {{latest[0].title}} </p>
+					<p class="episode">  </p>
+					<p class="host"> <span ng-repeat="x in latest[0].hosts"> {{x[1]}}, </span> </p>
 				</div>
 
 			</div>
 			<div class="recent-item">
-				<img src="images/img7.jpg" />
+				<img src="http://trinityforcenetwork.com/{{latest[1].image_url}}" />
 				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
-				</div>				
-			</div>
-			<div class="recent-item">
-				<img src="images/img8.jpg" />
-				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
-				</div>
-			</div>
-			<div class="recent-item">
-				<img src="images/img6.jpg" />
-				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
-				</div>
-			</div>
-			<div class="recent-item">
-				<img src="images/img6.jpg" />
-				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
+					<p class="title"> {{latest[1].title}} </p>
+					<p class="episode">  </p>
+					<p class="host"> <span ng-repeat="x in latest[1].hosts"> {{x[1]}}, </span> </p>
 				</div>
 
 			</div>
 			<div class="recent-item">
-				<img src="images/img7.jpg" />
+				<img src="http://trinityforcenetwork.com/{{latest[2].image_url}}" />
 				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
-				</div>				
+					<p class="title"> {{latest[2].title}} </p>
+					<p class="episode">  </p>
+					<p class="host"> <span ng-repeat="x in latest[2].hosts"> {{x[1]}}, </span> </p>
+				</div>
+
 			</div>
 			<div class="recent-item">
-				<img src="images/img8.jpg" />
+				<img src="http://trinityforcenetwork.com/{{latest[3].image_url}}" />
 				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
+					<p class="title"> {{latest[3].title}} </p>
+					<p class="episode">  </p>
+					<p class="host"> <span ng-repeat="x in latest[3].hosts"> {{x[1]}}, </span> </p>
 				</div>
+
 			</div>
 			<div class="recent-item">
-				<img src="images/img6.jpg" />
+				<img src="http://trinityforcenetwork.com/{{latest[4].image_url}}" />
 				<div class="text-item">
-					<p class="title"> Hearth of the Cards </p>
-					<p class="episode"> Episode 45: Last Wing </p>
-					<p class="host"> Host: pwnophobia, punchinello </p>
+					<p class="title"> {{latest[4].title}} </p>
+					<p class="episode"> </p>
+					<p class="host"> <span ng-repeat="x in latest[4].hosts"> {{x[1]}}, </span> </p>
 				</div>
+
+			</div>
+			<div class="recent-item">
+				<img src="http://trinityforcenetwork.com/{{latest[5].image_url}}" />
+				<div class="text-item">
+					<p class="title"> {{latest[5].title}} </p>
+					<p class="episode">  </p>
+					<p class="host"> <span ng-repeat="x in latest[5].hosts"> {{x[1]}}, </span> </p>
+				</div>
+
+			</div>
+			<div class="recent-item">
+				<img src="http://trinityforcenetwork.com/{{latest[6].image_url}}" />
+				<div class="text-item">
+					<p class="title"> {{latest[6].title}} </p>
+					<p class="episode"> </p>
+					<p class="host"> <span ng-repeat="x in latest[6].hosts"> {{x[1]}}, </span> </p>
+				</div>
+
+			</div>
+			<div class="recent-item">
+				<img src="http://trinityforcenetwork.com/{{latest[7].image_url}}" />
+				<div class="text-item">
+					<p class="title"> {{latest[7].title}} </p>
+					<p class="episode"> </p>
+					<p class="host"> <span ng-repeat="x in latest[7].hosts"> {{x[1]}}, </span> </p>
+				</div>
+
 			</div>
 		</div>
 	</section>
